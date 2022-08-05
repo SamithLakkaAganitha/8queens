@@ -1,3 +1,5 @@
+import logging
+
 class ChessBoard:
 
     # Constructor
@@ -22,19 +24,19 @@ class ChessBoard:
             # print('row',row)
             # print('col',col)
             if self.board[row][i] == 1:
-                print('ErrorRow')
+                logging.error('ErrorRow')
                 return False
-
+ 
             if row - i >= 0:
                 # upleft
                 if self.board[row - (i + 1)][col - (i + 1)] == 1:
-                    print('ErrorUp')
+                    logging.error('ErrorUp')
                     return False
 
             if row + i < self.N:
                 # downleft
                 if self.board[row + i][col - i] == 1:
-                    print('ErrorDown')
+                    logging.error('ErrorDown')
                     return False
 
         return True
